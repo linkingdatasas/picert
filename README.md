@@ -33,9 +33,89 @@ Crear un administrador `Administrator`:
 
 ```
 {
-  "$class": "org.degree.Admin",
+  "$class": "org.picert.Admin",
   "email": "admin@entidad.gov.co",
   "firstName": "Juan",
-  "lastName": "Admin",
+  "lastName": "Admin"
 }
 ```
+
+Crear un certificado no estructurado (Procuraduria)
+
+```
+{
+  "$class": "org.picert.cert",
+  "certId": "134083306",
+  "administrator": "resource:org.picert.Admin#admin@entidad.gov.co",
+  "typeC": "Assertion",
+  "name": "Certificado de Antecedentes", 
+  "message": [
+    "La PROCURADURIA GENERAL DE LA NACIÓN certifica que una vez consultado el Sistema de Información de Registro de Sanciones e Inhabilidades (SIRI), el(la) señor(a) CARLOS ALBERTO CASTRO IRAGORRI identificado(a) con Cédula de ciudadanía número 79947917: NO REGISTRA SANCIONES NI INHABILIDADES VIGENTES", "Nota...", "Advertencia..."
+  ],
+  "issuer": {
+    "$class": "composer.blockcerts.Issuer",
+    "id": "899999119",
+    "typen": "Profile",
+    "name": "Procuraduria General de la Nacion",
+    "image": "procu.png",
+    "signatureLines": {
+      "$class": "composer.blockcerts.SignatureLines",
+      "typen": "SignatureLine,Extension",
+      "name": "Manuel A. Espinosa",
+      "image": "firmaME.png",
+      "jobtitle": "Jefe Division Centro de Atencion al Publico"
+    }
+  },
+  "context": "https://w3id.org/openbadges/v2,https://w3id.org/blockcerts/v2"
+}
+```
+
+Crear una abstraccion de un certificado (Procuraduria)
+
+```
+{
+  "$class": "org.picert.abscert",
+  "absId": "PROCUR001",
+  "certId": "resource:org.picert.cert#134083306",
+  "certHash": "2fe4a53c81ec3298c784fd4a2b8e217e32bd1fa4b804d383a70f202f082b9a8c",
+  "uri": "RepoPROCUR",
+  "stored": "FAB"
+}
+```
+Crear un certificado estructurado (Invima)
+
+```
+{
+  "$class": "org.picert.cert",
+  "certId": "10I1301",
+  "administrator": "resource:org.picert.Admin#admin@entidad.gov.co",
+  "typeC": "Assertion",
+  "name": "Registro Sanitario",
+  "message": [
+    "Expediente Sanitario: 19924093", "Nombre del Producto: Todo Rico", "Estado del Registro: Vigente", "Fecha de Vencimiento: 2021/08/08",
+    "Modalidad: Fabricar y Vender", "Titular: Comestibles Ricos S.A."
+  ],
+  "issuer": {
+    "$class": "composer.blockcerts.Issuer",
+    "id": "830000167",
+    "typen": "Profile",
+    "name": "Invima",
+    "image": "invima.png"
+  },
+  "context": "https://w3id.org/openbadges/v2,https://w3id.org/blockcerts/v2"
+}
+```
+
+Crear una abstraccion de un certificado (Invima)
+
+```
+{
+  "$class": "org.picert.abscert",
+  "absId": "INVIMA001",
+  "certId": "resource:org.picert.cert#10I1301",
+  "certHash": "0da70addfbdae274ed2b77cabb34e4f6bbb6c736d19ab4e6b479f7a3da8fca7b",
+  "uri": "RepoINVIMA",
+  "stored": "FAB"
+}
+```
+Emision de un certificado y su bastraccion utilizando la transaccion `issue`
