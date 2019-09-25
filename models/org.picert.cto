@@ -48,10 +48,16 @@ asset abscert identified by absId {
 
 transaction issue {
   --> cert certId
+  o absInfo info
+}
+
+concept absInfo {
+  o String absId
+  o String uri
 }
 
 transaction verify {
-  --> abscert absId
+  o cert certId
 }
 
 event vermessage {
