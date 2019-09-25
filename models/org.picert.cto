@@ -19,6 +19,8 @@
 namespace org.picert
 
 import composer.blockcerts.Certificate
+import composer.blockcerts.Issuer
+import composer.blockcerts.SignatureLines
 
 enum blockchain{
   o FAB
@@ -39,7 +41,7 @@ asset cert identified by certId extends Certificate {
 
 asset abscert identified by absId {
   o String absId
-  --> cert certId
+  o String certId
   o String certHash
   o String uri
   o blockchain stored default='FAB'
@@ -47,21 +49,13 @@ asset abscert identified by absId {
 }
 
 transaction issue {
-  --> cert certId
-  o absInfo info
-}
-
-concept absInfo {
   o String absId
+  o String certId
+  --> Admin administrator
+  o String name
+  o String message
+  o Issuer issuer
   o String uri
-}
-
-transaction verify {
-  o cert certId
-}
-
-event vermessage {
-  o Boolean verified default=false
 }
 
 transaction certHistory {

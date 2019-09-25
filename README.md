@@ -49,8 +49,7 @@ Crear un certificado no estructurado (Procuraduria)
   "administrator": "resource:org.picert.Admin#admin@entidad.gov.co",
   "typeC": "Assertion",
   "name": "Certificado de Antecedentes", 
-  "message": [
-    "La PROCURADURIA GENERAL DE LA NACIÓN certifica que una vez consultado el Sistema de Información de Registro de Sanciones e Inhabilidades (SIRI), el(la) señor(a) CARLOS ALBERTO CASTRO IRAGORRI identificado(a) con Cédula de ciudadanía número 79947917: NO REGISTRA SANCIONES NI INHABILIDADES VIGENTES", "Nota...", "Advertencia..."
+  "message": "La PROCURADURIA GENERAL DE LA NACIÓN certifica que una vez consultado el Sistema de Información de Registro de Sanciones e Inhabilidades (SIRI), el(la) señor(a) CARLOS ALBERTO CASTRO IRAGORRI identificado(a) con Cédula de ciudadanía número 79947917: NO REGISTRA SANCIONES NI INHABILIDADES VIGENTES",
   ],
   "issuer": {
     "$class": "composer.blockcerts.Issuer",
@@ -91,10 +90,8 @@ Crear un certificado estructurado (Invima)
   "administrator": "resource:org.picert.Admin#admin@entidad.gov.co",
   "typeC": "Assertion",
   "name": "Registro Sanitario",
-  "message": [
-    "Expediente Sanitario: 19924093", "Nombre del Producto: Todo Rico", "Estado del Registro: Vigente", "Fecha de Vencimiento: 2021/08/08",
-    "Modalidad: Fabricar y Vender", "Titular: Comestibles Ricos S.A."
-  ],
+  "message": "Expediente Sanitario: 19924093; Nombre del Producto: Todo Rico; Estado del Registro: Vigente; Fecha de Vencimiento: 2021/08/08;
+    Modalidad: Fabricar y Vender; "Titular: Comestibles Ricos S.A.",
   "issuer": {
     "$class": "composer.blockcerts.Issuer",
     "id": "830000167",
@@ -118,4 +115,30 @@ Crear una abstraccion de un certificado (Invima)
   "stored": "FAB"
 }
 ```
-Emision de un certificado y su bastraccion utilizando la transaccion `issue`
+Emision de un certificado y su asbtraccion utilizando la transaccion `issue`
+
+```
+{
+  "$class": "org.picert.issue",
+  "absId": "PROCUR001",
+  "certId": "134083306",
+  "administrator": "resource:org.picert.Admin#admin@entidad.gov.co",
+  "name": "Certificado de Antecedentes",
+  "message": "La PROCURADURIA GENERAL DE LA NACIÓN certifica que una vez consultado el Sistema de Información de Registro de Sanciones e Inhabilidades (SIRI), el(la) señor(a) CARLOS ALBERTO CASTRO IRAGORRI identificado(a) con Cédula de ciudadanía número 79947917: NO REGISTRA SANCIONES NI INHABILIDADES VIGENTES",
+  "issuer": {
+    "$class": "composer.blockcerts.Issuer",
+    "id": "899999119",
+    "typen": "Profile",
+    "name": "Procuraduria General de la Nacion",
+    "image": "procu.png",
+    "signatureLines": {
+      "$class": "composer.blockcerts.SignatureLines",
+      "typen": "SignatureLine,Extension",
+      "name": "Manuel A. Espinosa",
+      "image": "firmaME.png",
+      "jobtitle": "Jefe Division Centro de Atencion al Publico"
+    }
+  },
+  "uri": "RepoPROCUR"
+}
+```

@@ -10,7 +10,7 @@
 abstract asset Certificate {
   o String typeC default='Assertion'
   o String name
-  o String[] message
+  o String message
   o Issuer issuer
   o String context default='https://w3id.org/openbadges/v2,https://w3id.org/blockcerts/v2'
 } 
