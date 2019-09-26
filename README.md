@@ -91,7 +91,7 @@ Crear un certificado estructurado (Invima)
   "typeC": "Assertion",
   "name": "Registro Sanitario",
   "message": "Expediente Sanitario: 19924093; Nombre del Producto: Todo Rico; Estado del Registro: Vigente; Fecha de Vencimiento: 2021/08/08;
-    Modalidad: Fabricar y Vender; "Titular: Comestibles Ricos S.A.",
+    Modalidad: Fabricar y Vender; Titular: Comestibles Ricos S.A.",
   "issuer": {
     "$class": "composer.blockcerts.Issuer",
     "id": "830000167",
@@ -117,6 +117,8 @@ Crear una abstraccion de un certificado (Invima)
 ```
 Emision de un certificado y su asbtraccion utilizando la transaccion `issue`
 
+Procuraduria
+
 ```
 {
   "$class": "org.picert.issue",
@@ -140,5 +142,27 @@ Emision de un certificado y su asbtraccion utilizando la transaccion `issue`
     }
   },
   "uri": "RepoPROCUR"
+}
+```
+
+Invima
+
+```
+{
+  "$class": "org.picert.issue",
+  "absId": "INVIMA001",
+  "certId": "10I1301",
+  "administrator": "resource:org.picert.Admin#admin@entidad.gov.co",
+  "name": "Registro Sanitario",
+  "message": "Expediente Sanitario: 19924093; Nombre del Producto: Todo Rico; Estado del Registro: Vigente; Fecha de Vencimiento: 2021/08/08;
+    Modalidad: Fabricar y Vender; Titular: Comestibles Ricos S.A.",
+  "issuer": {
+    "$class": "composer.blockcerts.Issuer",
+    "id": "830000167",
+    "typen": "Profile",
+    "name": "Invima",
+    "image": "invima.png"
+  },
+  "uri": "RepoINVIMA"
 }
 ```
