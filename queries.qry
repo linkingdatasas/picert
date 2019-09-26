@@ -1,0 +1,6 @@
+query selectAbsCertByCertId {
+  description: "Select AbsCert by CertId"
+  statement:
+  	SELECT org.picert.abscert
+  	WHERE (certId==_$Id)
+}
